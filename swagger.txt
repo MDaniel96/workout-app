@@ -1,0 +1,49 @@
+
+============ ROUTES ============
+
+
+-> plan
+
+GET + POST   /plan/add                - új terv hozzáadása
+GET          /plan/del/:id            - terv törlése
+GET + POST   /plan/mod/:id            - terv módosítása
+POST         /plan/mark/:id           - terv bejelölése/kijelölése
+GET          /plan/user               - bej. felh. terveinek listázása
+GET          /plan                    - összes terv listázása
+
+
+-> comment
+
+GET + POST   /comment/add/:planid     - komment hozzáadása tervhez
+GET          /comment/del/:cid        - komment törlése
+GET          /comment/:planid         - terv kommentjenek listázása
+
+
+-> user
+
+GET + POST   /login                   - bejelentkezés
+GET          /logout                  - kijelentkezés
+GET          /                        - főoldal
+
+
+
+
+
+============ MODELS ============
+
+
+-> User
+    - email
+    - pass
+
+-> Plan
+    - title
+    - creatorName
+    - description
+    - length
+    - difficulty
+    - comments
+
+-> Comment
+    - email
+    - content

@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .transient-bckg {
+    background-image: linear-gradient(to right, #33ccff, #ffcc99);
+  }
+  
+  .form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+  }
+  .form-signin .form-title-heading,
+  .form-signin {
+    margin-bottom: 100px;
+  }
+
+  .form-title-heading {
+    color: #324347;
+    font-weight: 500;
+    font-size: 270%;
+    margin-bottom: 100px;
+    margin-top: 100px;
+  }
+
+  .form-signin {
+    font-weight: normal;
+  }
+
+  .form-signin a {
+    color: #324347;
+  }
+
+  .form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .title {
+    margin-bottom: 50px;
+  }
+
+  .col-6 {
+    margin-bottom: 40px;
+  }
+
+  .card-header .btn {
+    margin-right: 20px;
+  }
