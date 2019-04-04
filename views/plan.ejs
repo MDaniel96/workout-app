@@ -1,0 +1,28 @@
+<div class="col-6">
+                    
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title"><%= plan.title %></h4>
+            <% if (isMyPlan) { %>
+                <a href="#" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            <% } %>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><%= plan.creator %></h5>
+            <p class="card-text"><%= plan.description %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Lenght: <%= plan.length %></li>
+            <li class="list-group-item">Difficulty: <%= plan.difficulty %></li>
+        </ul> 
+        <div class="card-footer">
+            <h5 class="card-title">Comments:</h5>
+            <% plan.comments.forEach(function(comment) { %>
+                <p class="card-text"> <%= comment.name %>:  <%= comment.content %> </p>
+                <button href="#" class="btn btn-sm">&#10008;</button></p>
+            <% }) %>
+        </div>
+    </div>
+
+</div>

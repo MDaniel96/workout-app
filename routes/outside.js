@@ -12,7 +12,10 @@ module.exports = function (app) {
      * Main page
      */
     app.get('/',
-        mainRedirectMW(objectRepository)
+        mainRedirectMW(objectRepository),
+        function(req, res, next) {
+            res.redirect('/login');
+        }
     );
 
     /**

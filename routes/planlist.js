@@ -2,10 +2,12 @@ var authMW = require('../middlewares/generic/auth');
 var renderMW = require('../middlewares/generic/render');
 
 var getPlanListMW = require('../middlewares/plan/getPlanList');
+var getUsersPlanListMW = require('../middlewares/plan/getUsersPlanList');
 var updatePlanMW = require('../middlewares/plan/updatePlan');
 var getPlanMW = require('../middlewares/plan/getPlan');
 var deletePlanMW = require('../middlewares/plan/deletePlan');
 var markPlanMW = require('../middlewares/plan/markPlan');
+
 
 
 module.exports = function(app) {
@@ -62,8 +64,8 @@ module.exports = function(app) {
      */
     app.use('/plan/user', 
         authMW(objectRepository),
-        getPlanListMW(objectRepository),
-        renderMW(objectRepository, 'user_plans')
+        getUsersPlanListMW(objectRepository),
+        renderMW(objectRepository, 'myplans')
     );
 
     /**

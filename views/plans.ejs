@@ -1,0 +1,25 @@
+<% include header %> 
+<% include sidenav %>
+       
+<div id="main">
+
+    <h1 class="title">Workout plans</h1>
+
+    <div class="container">
+        <div class="row">
+
+            <% plans.forEach(function(plan) { %>
+                <%- include('plan',
+                            {
+                                plan:plan,
+                                isMyPlan:false
+                            }) 
+                -%>
+            <% }) %>
+
+        </div>
+    </div>
+        
+</div> 
+    
+<% include footer %>

@@ -1,0 +1,77 @@
+<% include header %> 
+<% include sidenav %>
+       
+<div id="main">
+
+    <h1>My plans</h1>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" onclick="addPlan()" data-target="#exampleModal">
+        Add new plan
+    </button><h1 class="title"></h1>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add a new plan</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                
+                    <form id="modal-form">
+                        <div class="form-group">
+                            <label for="planname">Plan name</label>
+                            <input type="text" class="form-control" id="planname">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea rows="2" class="form-control" id="description"  ></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="difficulty">Difficulty</label>
+                            <select class="form-control" id="difficulty">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="lenght">Length</label>
+                            <input type="text" class="form-control" id="lenght" >
+                        </div>
+                    </form>
+
+            </div>
+                <div class="modal-footer">
+                    <button type="button submit" class="btn btn-success">Add plan</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container" >
+        <div class="row" id="myPlansContainer">
+
+            <% plans.forEach(function(plan) { %>
+                <%- include('plan',
+                            {
+                                plan:plan,
+                                isMyPlan:true
+                            }) 
+                -%>
+            <% }) %>
+
+        </div>
+    </div>
+    
+</div> 
+<% include footer %>

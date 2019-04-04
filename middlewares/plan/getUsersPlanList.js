@@ -1,7 +1,7 @@
 var requireOption = require('../common').requireOption;
 
 /**
- * Get the plan list
+ * Get user's plan list
  */
 
 module.exports = function (objectrepository) {
@@ -11,7 +11,7 @@ module.exports = function (objectrepository) {
             {
                 id: 1,
                 title: 'Bico',
-                creator: 'dani',
+                creator: 'Userrr',
                 description: 'asdfasdfasdfasdfasf',
                 length: 45,
                 difficulty: 5,
@@ -29,7 +29,7 @@ module.exports = function (objectrepository) {
             {
                 id: 2,
                 title: 'Trico',
-                creator: 'sani',
+                creator: 'Userrr',
                 description: 'twertwertwertwertewrt',
                 length: 25,
                 difficulty: 1,
@@ -43,7 +43,7 @@ module.exports = function (objectrepository) {
             {
                 id: 3,
                 title: 'Lab',
-                creator: 'sanyi',
+                creator: 'Userrr',
                 description: 'Labnap nincs',
                 length: 12,
                 difficulty: 3,
