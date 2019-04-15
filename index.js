@@ -1,13 +1,34 @@
 var express = require('express');
 var app = express();
 
+var session = require('express-session');
+var bodyParser = require('body-parser');
+
 app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
+app.use(session({
+    secret: 'gyuras',
+    cookie: {
+      maxAge: 60000
+    },
+    resave: true,
+    saveUninitialized: false
+  }));
+  
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+
 app.use(function(req, res, next) {
     res.error = [];
     res.tpl = {};
+    
     return next();
 });
 

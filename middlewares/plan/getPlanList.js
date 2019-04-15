@@ -3,66 +3,41 @@ var requireOption = require('../common').requireOption;
 /**
  * Get the plan list
  */
-
 module.exports = function (objectrepository) {
 
+    var planModel = requireOption(objectrepository, 'planModel');
+    var markModel = requireOption(objectrepository, 'markModel');
+
     return function (req, res, next) {
-        var plans = [
-            {
-                id: 1,
-                title: 'Bico',
-                creator: 'dani',
-                description: 'asdfasdfasdfasdfasf',
-                length: 45,
-                difficulty: 5,
-                comments: [
-                    {
-                        name: 'Kathi Béla',
-                        content: 'Nem vagyok bziii'
-                    },
-                    {
-                        name: 'Gyuros gyerek',
-                        content: 'de az vagy xdd ikszdé'
-                    }
-                ]
-            },
-            {
-                id: 2,
-                title: 'Trico',
-                creator: 'sani',
-                description: 'twertwertwertwertewrt',
-                length: 25,
-                difficulty: 1,
-                comments: [
-                    {
-                        name: 'anonim',
-                        content: 'lol'
-                    }
-                ]
-            },
-            {
-                id: 3,
-                title: 'Lab',
-                creator: 'sanyi',
-                description: 'Labnap nincs',
-                length: 12,
-                difficulty: 3,
-                comments: [
-                    {
-                        name: 'Sandor',
-                        content: 'kell a lábnap ember!'
-                    },
-                    {
-                        name: 'Gyuros gyerek',
-                        content: 'te vagy a lábnap'
-                    }
-                ]
+
+        planModel.find({
+
+        }).populate('_user').exec(function (err, results) {
+            if (err) {
+                return next(new Error('Error getting plans'));
             }
-        ];
 
-        res.tpl.plans = plans;
+            var cnt = 0;
+            results.forEach(function (plan) {
+                markModel.findOne({
+                    _plan: plan._id,
+                    _user: res.tpl.user._id
+                }).exec(function (err, result) {
+                    if (err) {
+                        return next(new Error('Error getting marks'));
+                    }
+                    cnt++;
+                    result !== null ? plan.marked = true : plan.marked = false;
+                    if (cnt === results.length) {
+                        res.tpl.plans = results;
+                        return next();
+                    }
+                });
+                
+            });
 
-        return next();
+
+        });
     };
 
 };

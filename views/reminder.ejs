@@ -1,0 +1,16 @@
+<% include header %>
+
+<div id="main">
+    <h6>Submit your email, so we can send your new pass.</h6>
+
+    <form id="modal-form" method="POST">
+        <div class="form-group">
+            <input type="text" class="form-control" id="email" name="email" placeholder="Your email">
+        </div>
+        <input href="/remind" type="submit" class="btn btn-success" value="Submit" />
+        <a href="/" type="button" class="btn btn-secondary" data-dismiss="modal">Back</a>
+    </form>
+
+</div>
+
+<% include footer %>

@@ -1,0 +1,36 @@
+<% include header %>
+
+<div id="main">
+    <a href="/logout" class="btn btn-info">Logout</a>
+    <h1>My plans</h1>
+
+    <form id="modal-form" method="POST">
+        <div class="form-group">
+            <label for="title">Plan name</label>
+            <input type="text" class="form-control" id="title" name="title" value="<%= plan.title %>">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea rows="2" class="form-control" id="description" name="description"><%= plan.description %></textarea>
+        </div>
+        <div class="form-group">
+            <label for="difficulty">Difficulty</label>
+            <select class="form-control" id="difficulty" name="difficulty" value="<%= plan.difficulty %>">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="length">Length</label>
+            <input type="text" class="form-control" id="length" name="length" value="<%= plan.length %>">
+        </div>
+        <input href="/plan/mod/<%= plan.id %>" type="submit" class="btn btn-info" value="Edit" />
+        <a href="/plan/user" type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</a>
+    </form>
+
+</div>
+
+<% include footer %>

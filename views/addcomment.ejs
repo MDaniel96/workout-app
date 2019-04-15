@@ -1,0 +1,11 @@
+    <% include header %>
+
+    <form id="modal-form" method="POST">
+        <div class="form-group">
+            <textarea rows="2" class="form-control" id="content" name="content" placeholder="Write comment"></textarea>
+        </div>
+        <input href="/comment/add/<%= plan.id %>" class="btn btn-success" type="submit" />
+        <a href="/plan" type="button" class="btn btn-secondary" data-dismiss="modal">Back</a>
+    </form>
+
+    <% include footer %>

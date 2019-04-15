@@ -1,7 +1,7 @@
 var requireOption = require('../common').requireOption;
 
 /**
- * Mark a plan object
+ * Unmark a plan object
  */
 module.exports = function (objectrepository) {
 
@@ -13,17 +13,18 @@ module.exports = function (objectrepository) {
             return next();
         }
 
-        mark = new markModel();
-        mark._plan = res.tpl.plan;
-        mark._user = res.tpl.user;
-
-        mark.save(function (err, result) {
+        markModel.find({
+            _plan: res.tpl.plan,
+            _user: res.tpl.user
+        })
+        .remove()
+        .exec(function (err, res) {
             if (err) {
-                return next(err);
+                return next(new Error('Error deleting mark'));
             }
-
             return next();
         });
+
 
     };
 

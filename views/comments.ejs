@@ -1,0 +1,14 @@
+<% include header %>
+
+    <% comments.forEach(function(comment) { %>
+        <p style="display: inline-block;" class="card-text"> <b><%= comment.name %>:</b>  <%= comment.content %> </p>
+        <% if (comment.owned) { %>
+            <a href="/comment/del/<%= comment.id %>" style="display: inline-block;" href="#" class="btn btn-sm">&#10008;</a></p>
+        <% } %>
+        <hr>
+    <% }) %>
+
+    <hr>
+    <a href="/plan" type="button" class="btn btn-secondary" data-dismiss="modal">Back</a>
+
+<% include footer %>

@@ -38,12 +38,12 @@ GET          /                        - főoldal
 
 -> Plan
     - title
-    - creatorName
     - description
-    - length
     - difficulty
-    - comments
+    - length
+    - userId
 
 -> Comment
-    - email
+    - name
     - content
+    - planId
